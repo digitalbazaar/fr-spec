@@ -1,0 +1,11 @@
+{
+  "name": "fr-spec",
+  "version": "0.0.1-0",
+  "description": "Verifiable Credentials for First Responders Specification.",
+  "dependencies": {
+    "yml2vocab": "^1.4.1"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/yml2vocab -v vocabulary.yml -t template.html"
+  }
+}
