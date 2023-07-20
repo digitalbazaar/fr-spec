@@ -3,6 +3,7 @@
   "version": "0.0.1-0",
   "description": "Verifiable Credentials for First Responders Specification.",
   "dependencies": {
+    "libxmljs": "^1.0.9",
     "yml2vocab": "^1.4.1"
   },
   "scripts": {
