@@ -213,7 +213,8 @@ official endorsement should be inferred.
     "https://w3id.org/first-responder/v1"
   ],
   "id": "https://www.nremt.org/registrations/238947023",
-  "type": ["VerifiableCredential", "FirstResponderCredential"],
+  "type": ["VerifiableCredential",
+"FirstResponderCredential"],
   "issuer": {
     "id": "https://www.naemt.org/",
     "name": "National Association of Emergency Medical Technicians",
@@ -246,6 +247,44 @@ official endorsement should be inferred.
         </section>
         <section>
           <h3>First Responder Training</h3>
+          <pre class="example nohighlight" title="An example of a First Responder training expressed as a Verifiable Credential">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/first-responder/v1"
+  ],
+  "id": "https://www.nremt.org/registrations/238947023",
+  "type": ["VerifiableCredential", "FirstResponderCredential"],
+  "issuer": {
+    "id": "https://www.naemt.org/",
+    "name": "National Association of Emergency Medical Technicians",
+    "image": "https://naemt.org/img/logo-w.png"
+  },
+  "validFrom": "2023-01-01T00:00:00Z",
+  "validUntil": "2028-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "type": "FirstResponderType",
+    "training": {
+      "id": "https://courses.vccs.edu/courses/EMS140-SpecialPopulationsLab/detail",
+      "type": "TrainingType",
+      "courseText": "EMS 139 - Special Populations",
+      "courseLevelText": "Intermediate",
+      "isIssuedCertificationIndicator": true,
+      "trainingDuration": 20
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2023-07-12T01:19:52Z",
+    "verificationMethod": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg#z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "cryptosuite": "eddsa-2022",
+    "proofPurpose": "authentication",
+    "proofValue": "z2xzCdyYpxcrnYfaWUuQb7K9htwTxmFFndAwofNV81F8iZvAgqnmz9bswK6wBoX7e529Ymd3xT1YrcbZzvbzDRHtZ"
+  }
+}
+          </pre>
+
         </section>
       </section>
     </section>
