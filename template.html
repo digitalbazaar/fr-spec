@@ -113,6 +113,11 @@ table.rdfs-definition td {
   box-shadow: 0 2px 8px black;
   text-align: center;
 }
+
+pre.nohighlight {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
     </style>
   </head>
   <body typeof="owl:Ontology">
@@ -150,15 +155,16 @@ official endorsement should be inferred.
       <section>
         <h2>Examples</h2>
         <section>
-          <h3>First Responder</h3>
-          <pre class="example" title="An example of a First Responder instance">
+          <h3>First Responder Badge</h3>
+          <pre class="example nohighlight" title="An example of a First Responder badge expressed as a Verifiable Credential">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/first-responder/v1"
   ],
   "id": "https://www.nremt.org/registrations/238947023",
-  "type": ["VerifiableCredential", "FirstResponderCredential"],
+  "type": ["VerifiableCredential",
+"FirstResponderCredential"],
   "issuer": {
     "id": "https://www.nremt.org/",
     "name": "National Registry of Emergency Medical Technicians",
@@ -169,6 +175,8 @@ official endorsement should be inferred.
   "credentialSubject": {
     "id": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
     "type": "FirstResponderType",
+    "name": "Samantha Doe",
+    "image": "data:image/png;base64,iVBORw0KGgoAA...TXL0Y4OHwAAAABJRU5ErkJggg==",
     "badge": {
       "type": "BadgeType",
       "badgeJobTitleText": "Emergency Medical Technician",
@@ -198,6 +206,43 @@ official endorsement should be inferred.
         </section>
         <section>
           <h3>First Responder Skill</h3>
+          <pre class="example nohighlight" title="An example of a First Responder skill expressed as a Verifiable Credential">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/first-responder/v1"
+  ],
+  "id": "https://www.nremt.org/registrations/238947023",
+  "type": ["VerifiableCredential", "FirstResponderCredential"],
+  "issuer": {
+    "id": "https://www.naemt.org/",
+    "name": "National Association of Emergency Medical Technicians",
+    "image": "https://naemt.org/img/logo-w.png"
+  },
+  "validFrom": "2023-01-01T00:00:00Z",
+  "validUntil": "2028-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "type": "FirstResponderType",
+    "skill": {
+      "type": "SkillType",
+      "skillName": "Newborn resuscitation",
+      "skillDescriptionText": "Ability to provide critical pediatric care to newborns and children under the age of 12 months that have stopped breathing.",
+      "skillAcquiredCategoryCode": "Trained",
+      "skillUseHistoryText": "Weekly Emergency Room rotation from June 2020 to April 2023 in pediatric ward of Grady Memorial Hospital.",
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2023-07-12T01:19:52Z",
+    "verificationMethod": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg#z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "cryptosuite": "eddsa-2022",
+    "proofPurpose": "authentication",
+    "proofValue": "z2xzCdyYpxcrnYfaWUuQb7K9htwTxmFFndAwofNV81F8iZvAgqnmz9bswK6wBoX7e529Ymd3xT1YrcbZzvbzDRHtZ"
+  }
+}
+          </pre>
+
         </section>
         <section>
           <h3>First Responder Training</h3>
