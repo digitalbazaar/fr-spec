@@ -142,16 +142,15 @@ prefix:
 
 ontology:
   - property: dc:title
-    value: First Responder Vocabulary v0.1
+    value: First Responder Verifiable Credentials Specification v0.1
 
   - property: dc:description
-    value: RDFS [[RDF-SCHEMA]] vocabulary that is compliant with the NIEMOpen vocabulary used by the Verifiable Credentials [[VC-DATA-MODEL]] for the First Responder community.
+    value: specification for describing First Responders using Verifiable Credentials that is compatible with NIEMOpen, a community-driven, common vocabulary that enables efficient information exchange across diverse public and private organizations. This document provides an introduction and examples for developers issuing and verifying Verifiable Credentials for use in the First Responder community
 
   - property: rdfs:seeAlso
     value: http://niem.github.io/
 
 class:
-
   - id: FirstResponderType
     label: First Responder Type
     comment: A data type for a person who is a first responder.
@@ -383,147 +382,175 @@ class:
   - id: FirstResponderAvailabilityStatusCodeType
     label: First Responder Availability Status Code Type
     comment: A data type that describes if a first responder is available.
-property:
 
+property:
   - id: roleOfPerson
     label: Role Of Person
     comment: Role Of Person
 
   - id: personHumanResource
     label: Person Human Resource
-    range: em:PersonHumanResourceType
+    domain: BadgeType
+    range: PersonHumanResourceType
     comment: A data element for the human resource detail information.
 
   - id: personIDCard
     label: Person Card
-    range: em:PersonIDCardType
+    domain: PersonHumanResourceType
+    range: PersonIDCardType
     comment: An element contains information about a person identification information.
 
   - id: nameOnCardText
     label: Name On Card Text
+    domain: PersonIDCardType
     range: nc:TextType
     comment: A data element that is the name of the person which is printed on an identification card.
 
   - id: iDCategoryCodeAbstract
     label: Category Code Abstract
+    domain: PersonIDCardType
     comment: A data concept for a code list for identification information types for a resource e.g.  ID card number etc..
 
   - id: signatureAuthorityName
     label: Signature Authority Name
+    domain: PersonIDCardType
     range: nc:TextType
     comment: A data element for the signature authority name on a badge.
 
   - id: agencySymbol
     label: Agency Symbol
+    domain: PersonIDCardType
     range: nc:BinaryType
     comment: A binary (i.e. digitized) presentation of an Agency's Symbol (i.e. Logo of the agency that the ID has been issued for).
 
   - id: resourcePicture
     label: Resource Picture
+    domain: PersonIDCardType
     range: nc:ImageType
     comment: An element for a resource image.
 
   - id: cardPicture
     label: Card Picture
+    domain: PersonIDCardType
     range: nc:ImageType
     comment: A binary (i.e. digitized) presentation of an identification card picture.
 
   - id: nISTSP800733PIVCardData
     label: 800733 Card Data
-    range: em:NISTSP800733PIVCardDataType
+    domain: PersonIDCardType
+    range: NISTSP800733PIVCardDataType
     comment: A data element for the fields contained on a PIV card.
 
   - id: cardCapabilityContainer
     label: Card Capability Container
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for the capability to contain data of the PIV Card.
 
   - id: cardholderFingerprints
     label: Cardholder Fingerprints
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for fingerprint biometrics obtained from the cardholders that are contained in the PIV Card.
 
   - id: cardholderID
     label: Cardholder
+    domain: NISTSP800733PIVCardDataType
     range: niem-xs:string
     comment: A identifier assigned to the card-holder.
 
   - id: discoveryObject
     label: Discovery Object
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for inter-industry ISO/IEC 7816 template that nests inter-industry data objects.
 
   - id: keyHistoryObject
     label: Key History Object
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for the retired Key Management private keys.
 
   - id: printedText
     label: Printed Text
+    domain: NISTSP800733PIVCardDataType
     range: nc:TextType
     comment: A data element for information that is printed on an identification card.
 
   - id: securityObject
     label: Security Object
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for a data object that contains the security information.
 
   - id: cardholderFacialImage
     label: Cardholder Facial Image
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A binary representation of a facial image.
 
   - id: cardholderIrisImages
     label: Cardholder Iris Images
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A binary representation of iris images.
 
   - id: x509CertificateForCardAuthentication
     label: 509 Certificate For Card Authentication
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for X.509 certificate for card authentication key.
 
   - id: x509CertificateForDigitalSignature
     label: 509 Certificate For Digital Signature
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for X.509 certificate for digital signature.
 
   - id: x509CertificateForKeyManagement
     label: 509 Certificate For Key Management
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for X.509 certificate for key management.
 
   - id: x509CertificateForPIVAuthentication
     label: 509 Certificate For Authentication
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A data element for X.509 certificate for PIV authentication.
 
   - id: retiredX509CertificateForKeyManagement
     label: Retired 509 Certificate For Key Management
+    domain: NISTSP800733PIVCardDataType
     range: nc:BinaryType
     comment: A binary representation of a retired X509 Certificate for key management.
 
   - id: nISTSP800733PIVCardDataAugmentationPoint
     label: 800733 Card Data Augmentation Point
+    domain: NISTSP800733PIVCardDataType
     comment: An augmentation point for NISTSP800733PIVCardDataType.
 
   - id: eAssuranceLevelCode
     label: Assurance Level Code
-    range: em:EAssuranceLevelCodeType
+    domain: PersonIDCardType
+    range: EAssuranceLevelCodeType
     comment: A data element for an assurance level code, defined by OMB M-04-04 E-Authentication Guidance.
 
   - id: pIVAssuranceLevelCode
     label: Assurance Level Code
-    range: em:PIVAssuranceLevelCodeType
+    domain: PersonIDCardType
+    range: PIVAssuranceLevelCodeType
     comment: A data element for an assurance level code, defined by FIPS 201.
 
   - id: fIPS201ConformanceCode
     label: 201 Conformance Code
-    range: em:FIPS201ConformanceCodeType
+    domain: PersonIDCardType
+    range: FIPS201ConformanceCodeType
     comment: A data element for FIPS 201 conformance level of an identification card.
 
   - id: personIDCardAugmentationPoint
     label: Person Card Augmentation Point
+    domain: PersonIDCardType
     comment: An augmentation point for PersonIDCardType.
 
   - id: address
@@ -532,6 +559,7 @@ property:
 
   - id: availabilityText
     label: Availability Text
+    domain: ResourceInformationType
     range: nc:TextType
     comment: A text or code indicating availability of an item.
 
@@ -541,7 +569,8 @@ property:
 
   - id: updateRecord
     label: Update Record
-    range: em:UpdateRecordType
+    domain: PersonHumanResourceType
+    range: UpdateRecordType
     comment: An element contains information about the data update information.
 
   - id: lastUpdatedDate
@@ -550,11 +579,13 @@ property:
 
   - id: updateBy
     label: Update By
+    domain: UpdateRecordType
     range: nc:IdentificationType
     comment: An element identifies the person/system updated the data.
 
   - id: updateRecordAugmentationPoint
     label: Update Record Augmentation Point
+    domain: UpdateRecordType
     comment: An augmentation point for UpdateRecordType.
 
   - id: attachment
@@ -563,31 +594,37 @@ property:
 
   - id: personHumanResourceAugmentationPoint
     label: Person Human Resource Augmentation Point
+    domain: PersonHumanResourceType
     comment: An augmentation point for PersonHumanResourceType.
 
   - id: jobTitleOrRole
     label: Job Title Or Role
-    range: em:JobTitleOrRoleType
+    domain: ExperienceType
+    range: JobTitleOrRoleType
     comment: A data element for the credential class that represents the type of experience possessed by a Person.
 
   - id: jobTitleOrRoleName
     label: Job Title Or Role Name
+    domain: JobTitleOrRoleType
     range: nc:TextType
     comment: A textual name of a person's job title or role.
 
   - id: jobTitleDescriptionText
     label: Job Title Description Text
+    domain: JobTitleOrRoleType
     range: nc:TextType
     comment: A textual description of a Person's Job Title.
 
   - id: jobTitleOrRoleLevelText
     label: Job Title Or Role Level Text
+    domain: JobTitleOrRoleType
     range: nc:TextType
     comment: A textual description of the level associated with a person's job title or role.
 
   - id: organizationAffiliationCategoryCode
     label: Organization Affiliation Category Code
-    range: em:OrganizationAffiliationCategoryCodeType
+    domain: JobTitleOrRoleType
+    range: OrganizationAffiliationCategoryCodeType
     comment: A textual description of the type association between an organization and a person.
 
   - id: organization
@@ -596,12 +633,14 @@ property:
 
   - id: jurisdictionName
     label: Jurisdiction Name
+    domain: JobTitleOrRoleType
     range: nc:TextType
     comment: A data element that is the name of a jurisdiction.
 
   - id: approvalStatusCode
     label: Approval Status Code
-    range: em:ApprovalStatusCodeType
+    domain: CredentialClassType
+    range: ApprovalStatusCodeType
     comment: A status code of an approval item.
 
   - id: titleIssuingAuthorityName
@@ -614,6 +653,7 @@ property:
 
   - id: emergencySupportFunctionAbstract
     label: Emergency Support Function Abstract
+    domain: CredentialClassType
     comment: A data concept for an Emergency Support Function (ESF).
 
   - id: titleCategoryText
@@ -622,11 +662,13 @@ property:
 
   - id: jobTitleOrRoleAugmentationPoint
     label: Job Title Or Role Augmentation Point
+    domain: JobTitleOrRoleType
     comment: An augmentation point for JobTitleOrRoleType.
 
   - id: checkInOutRecord
     label: Check In Out Record
-    range: em:CheckInOutRecordType
+    domain: FirstResponderType
+    range: CheckInOutRecordType
     comment: A data element for a record of check-in and check-out.
 
   - id: incidentEvent
@@ -635,292 +677,352 @@ property:
 
   - id: checkInOutCode
     label: Check In Out Code
-    range: em:CheckInOutCodeType
+    domain: CheckInOutRecordType
+    range: CheckInOutCodeType
     comment: A code element for describing check in and check out.
 
   - id: checkInOutLocationCategoryCode
     label: Check In Out Location Category Code
-    range: em:CheckInOutLocationCategoryCodeType
+    domain: CheckInOutRecordType
+    range: CheckInOutLocationCategoryCodeType
     comment: A code element for describing check-in or check-out location type.
 
   - id: checkInOutLocation
     label: Check In Out Location
+    domain: CheckInOutRecordType
     range: nc:LocationType
     comment: A data element for check-in/out location.
 
   - id: checkInOutDateTime
     label: Check In Out Date Time
+    domain: CheckInOutRecordType
     range: niem-xs:dateTime
     comment: A data element for check in/out date and time.
 
   - id: checkInOutPerson
     label: Check In Out Person
-    range: em:PersonHumanResourceType
+    domain: CheckInOutRecordType
+    range: PersonHumanResourceType
     comment: A data element for a person who performed check-in or check-out operation.
 
   - id: checkInOutRecordAugmentationPoint
     label: Check In Out Record Augmentation Point
+    domain: CheckInOutRecordType
     comment: An augmentation point for CheckInOutRecordType.
 
   - id: firstResponderTeam
     label: First Responder Team
-    range: em:TeamType
+    domain: FirstResponderType
+    range: TeamType
     comment: A data element for first responders that credential and deploy as a team.
 
   - id: resourceInformation
     label: Resource Information
-    range: em:ResourceInformationType
+    domain: FirstResponderType
+    range: ResourceInformationType
     comment: A name for the container that provides further definition regarding the resource(s) identified in the message and as such may contain a discrete list , numerical value(s), ID or textual descriptions of resources.
 
   - id: resourceJurisdictionText
     label: Resource Jurisdiction Text
+    domain: ResourceInformationType
     range: nc:TextType
     comment: A geopolitical area in which an organization, person, or object has a specific range of authority for specified resources.
 
   - id: resourceQuantity
     label: Resource Quantity
+    domain: ResourceInformationType
     range: nc:QuantityType
     comment: A count of the number of resources.
 
   - id: resourceLocationDetails
     label: Resource Location Details
-    range: em:ResourceLocationDetailsType
+    domain: ResourceInformationType
+    range: ResourceLocationDetailsType
     comment: A name for the container that can include textual descriptions, physical location of resource, departure location of Resource, location need for Resource and/or for tracking.
 
   - id: resourceRequestedLocation
     label: Resource Requested Location
+    domain: ResourceLocationDetailsType
     range: nc:LocationType
     comment: A location where the requested resource is needed.  Completed for Resource requests, returns, etc.
 
   - id: resourceReportToLocation
     label: Resource Report To Location
+    domain: ResourceLocationDetailsType
     range: nc:LocationType
     comment: A location where the requested resource is to report-to, or checks in at the destination.
 
   - id: resourceCurrentLocation
     label: Resource Current Location
+    domain: ResourceLocationDetailsType
     range: nc:LocationType
     comment: A location where the specified resource is physically located at the time of the request.
 
   - id: resourceDepartureLocation
     label: Resource Departure Location
+    domain: ResourceLocationDetailsType
     range: nc:LocationType
     comment: A location where the specified resource is departing from when transported to or from an Incident.
 
   - id: arrivalLocation
     label: Arrival Location
+    domain: ResourceLocationDetailsType
     range: nc:LocationType
     comment: A textual description of the location where the specified resource has arrived at dateTime of the resource message when transported to or from an Incident.
 
   - id: pointToPointLocationTracking
     label: Point To Point Location Tracking
-    range: em:PointToPointLocationTrackingType
+    domain: ResourceLocationDetailsType
+    range: PointToPointLocationTrackingType
     comment: A name for the container that provides Information that can indicate arrival , departure and locations of a resource pertaining to a route.
 
   - id: departureDateTime
     label: Departure Date Time
+    domain: PointToPointLocationTrackingType
     range: niem-xs:dateTime
     comment: A date the resource departs the route location.
 
   - id: routeLocation
     label: Route Location
+    domain: PointToPointLocationTrackingType
     range: nc:LocationType
     comment: A location along the delivery route for a resource.
 
   - id: arrivalDateTime
     label: Arrival Date Time
+    domain: DeploymentInformationType
     range: niem-xs:dateTime
     comment: A date that a resource arrived at the route location.
 
   - id: pointToPointLocationTrackingAugmentationPoint
     label: Point To Point Location Tracking Augmentation Point
+    domain: PointToPointLocationTrackingType
     comment: An augmentation point for PointToPointLocationTrackingType.
 
   - id: resourceLocationDetailsAugmentationPoint
     label: Resource Location Details Augmentation Point
+    domain: ResourceLocationDetailsType
     comment: An augmentation point for ResourceLocationDetailsType.
 
   - id: inventoryRefreshDateTime
     label: Inventory Refresh Date Time
+    domain: ResourceInformationType
     range: niem-xs:dateTime
     comment: A date that resource inventory counts were last updated.
 
   - id: resourceStatusKeywordValue
     label: Resource Status Keyword Value
-    range: em:ValueType
+    domain: ResourceInformationType
+    range: ValueType
     comment: A value from a discrete managed list, used to specify the general state of a resource if known.  where the content of value List Urn is the Uniform Resource Name of a published list of values and definitions, and the content of value is a string.
 
   - id: valueText
     label: Value Text
+    domain: ValueType
     range: nc:TextType
     comment: A Value from a certified list maintained by the Community of Interest (COI) for the referenced element.
 
   - id: valueListURNText
     label: Value List Text
+    domain: ValueType
     range: nc:TextType
     comment: A name of the certified list maintained by the Community of Interest (COI) for the value referenced.
 
   - id: valueAugmentationPoint
     label: Value Augmentation Point
+    domain: ValueType
     comment: An augmentation point for ValueType.
 
   - id: resourceAnticipatedIncidentAssignmentText
     label: Resource Anticipated Incident Assignment Text
+    domain: ResourceInformationType
     range: nc:TextType
     comment: A text detailing anticipated function, task, job, or role to be provided by the requested resource.
 
   - id: requestAcceptDeclineCode
     label: Request Accept Decline Code
+    domain: ResourceInformationType
     range: edxl_rm:ResponseCodeType
     comment: A code used to accept or decline a Request, Response, Unsolicited Offer, or a Request Return.  Decline indicates the request, response or offer is not accepted.
 
   - id: declineReasonCodeAbstract
     label: Decline Reason Code Abstract
+    domain: ResourceInformationType
     comment: A data concept for a declined Request, Response, Unsolicited Offer, or a Request Return.
 
   - id: navigationInstructionsText
     label: Navigation Instructions Text
+    domain: ResourceInformationType
     range: nc:TextType
     comment: A set of instructions that define how to get to the report to location.
 
   - id: reportingInstructionsText
     label: Reporting Instructions Text
+    domain: ResourceInformationType
     range: nc:TextType
     comment: A name of the party that the requested item is to report to when they arrive at the incident.
 
   - id: resourceDispositionKeywordValue
     label: Resource Disposition Keyword Value
-    range: em:ValueType
+    domain: ResourceInformationType
+    range: ValueType
     comment: A value from a discrete managed list, used to specify the general state of a resource if known.
 
   - id: resourceOrderIdentification
     label: Resource Order Identification
+    domain: ResourceInformationType
     range: nc:IdentificationType
     comment: An identification number or ID assigned by the ordering system or personnel meeting the request for resources that has been made.
 
   - id: resourcePriceQuoteAmount
     label: Resource Price Quote Amount
+    domain: ResourceInformationType
     range: nc:AmountType
     comment: A Quoted cost to acquire a desired resource.  Complete in response to a Request Resource Quote.
 
   - id: resourceRestrictionsText
     label: Resource Restrictions Text
+    domain: ResourceInformationType
     range: nc:TextType
     comment: A description of a condition governing the availability of resources.
 
   - id: resourceModeOfTransportationText
     label: Resource Mode Of Transportation Text
+    domain: ResourceInformationType
     range: nc:TextType
     comment: A text describing the method or mode used to transport the resource to or from the incident.
 
   - id: resourceSchedule
     label: Resource Schedule
-    range: em:ResourceScheduleType
+    domain: ResourceInformationType
+    range: ResourceScheduleType
     comment: A name for the container with schedule information specific to arrivals, departures, availability, committed date, etc.
 
   - id: resourceActualArrivalDateTime
     label: Resource Actual Arrival Date Time
+    domain: ResourceScheduleType
     range: niem-xs:dateTime
     comment: An actual date of arrival of the resource a Report To Location.
 
   - id: resourceActualDepartureDateTime
     label: Resource Actual Departure Date Time
+    domain: ResourceScheduleType
     range: niem-xs:dateTime
     comment: An actual date when the resource departs from its current location for transit to a Report To Location.
 
   - id: resourceAnticipatedReturnDateTime
     label: Resource Anticipated Return Date Time
+    domain: ResourceScheduleType
     range: niem-xs:dateTime
     comment: A date when the resource is expected to be returned or demobilized.  Completed for a Request Resource.  This element with the Requested Arrival Date / Time provides the estimated duration of resource deployment.
 
   - id: resourceAvailableDate
     label: Resource Available Date
+    domain: ResourceScheduleType
     range: nc:DateType
     comment: A date when the resource is available for use.  Completed in response to a resource message.
 
   - id: resourceCommittedDate
     label: Resource Committed Date
+    domain: ResourceScheduleType
     range: nc:DateType
     comment: A date when specified resource is committed to a request or order.  Completed in response to a resource message.  Specified resource is no longer available to be applied to other resource requests.
 
   - id: resourceEstimatedArrivalDateTime
     label: Resource Estimated Arrival Date Time
+    domain: ResourceScheduleType
     range: niem-xs:dateTime
     comment: A date when the resource is expected to arrive at its Report To Location.
 
   - id: resourceEstimatedDepartureDateTime
     label: Resource Estimated Departure Date Time
+    domain: ResourceScheduleType
     range: niem-xs:dateTime
     comment: A date when the resource is expected to depart from its current location for transit to a Report-to Location.
 
   - id: resourceRequestedArrivalDateTime
     label: Resource Requested Arrival Date Time
+    domain: ResourceScheduleType
     range: niem-xs:dateTime
     comment: A date when the resource is needed.  Completed for Resource requests, returns, etc.
 
   - id: resourceScheduleAugmentationPoint
     label: Resource Schedule Augmentation Point
+    domain: ResourceScheduleType
     comment: An augmentation point for ResourceScheduleType.
 
   - id: ownerInformation
     label: Owner Information
-    range: em:OwnerInformationType
+    domain: FirstResponderType
+    range: OwnerInformationType
     comment: An indicator of ownership that can be a- role, person, organizational unit, Department, or Entity name to define ownership.
 
   - id: homeDispatch
     label: Home Dispatch
+    domain: OwnerInformationType
     range: nc:OrganizationType
     comment: A organization (home dispatch) the resource is assigned to.
 
   - id: homeUnit
     label: Home Unit
+    domain: OwnerInformationType
     range: nc:OrganizationType
     comment: A organization (Home Unit) the resource is assigned to.
 
   - id: owner
     label: Owner
+    domain: OwnerInformationType
     range: nc:OrganizationType
     comment: An organization with a specific range of authority for specified resource(s).
 
   - id: ownerInformationAugmentationPoint
     label: Owner Information Augmentation Point
+    domain: OwnerInformationType
     comment: An augmentation point for OwnerInformationType.
 
   - id: resourceInformationAugmentationPoint
     label: Resource Information Augmentation Point
+    domain: ResourceInformationType
     comment: An augmentation point for ResourceInformationType.
 
   - id: teamDescriptionText
     label: Team Description Text
+    domain: FirstResponderType
     range: nc:TextType
     comment: A data element for the textual description of a team.
 
   - id: teamSizeMinimumValue
     label: Team Size Minimum Value
+    domain: TeamType
     range: niem-xs:integer
     comment: A data element for the minimum size (i.e., number of members) of a team.
 
   - id: teamSizeMaximumValue
     label: Team Size Maximum Value
+    domain: TeamType
     range: niem-xs:integer
     comment: A data element for the maximum size (i.e., number of members) of a team..
 
   - id: teamAugmentationPoint
     label: Team Augmentation Point
+    domain: TeamType
     comment: An augmentation point for TeamType.
 
   - id: teamLeadIndicator
     label: Team Lead Indicator
+    domain: FirstResponderType
     range: niem-xs:boolean
     comment: True if a team leader; false otherwise.
 
   - id: experience
     label: Experience
-    range: em:ExperienceType
+    domain: FirstResponderType
+    range: ExperienceType
     comment: A credential class that represents the type of experience possessed by a person.
 
   - id: referenceInformation
     label: Reference Information
+    domain: ExperienceType
     range: nc:EntityType
     comment: A data element that has the reference information of a person's experience.
 
@@ -930,7 +1032,8 @@ property:
 
   - id: deploymentSummary
     label: Deployment Summary
-    range: em:DeploymentSummaryType
+    domain: ExperienceType
+    range: DeploymentSummaryType
     comment: A credential class that represents the Deployment brief summary.
 
   - id: activityName
@@ -939,50 +1042,60 @@ property:
 
   - id: deploymentStartDate
     label: Deployment Start Date
+    domain: DeploymentSummaryType
     range: nc:DateType
     comment: A date when the deployment started.
 
   - id: deploymentEndDate
     label: Deployment End Date
+    domain: DeploymentSummaryType
     range: nc:DateType
     comment: A date when on a person ended deployment to an incident.
 
   - id: deploymentDaysNumeric
     label: Deployment Days Numeric
+    domain: DeploymentSummaryType
     range: niem-xs:integer
     comment: A data element for the number days deployed.
 
   - id: deploymentSummaryAugmentationPoint
     label: Deployment Summary Augmentation Point
+    domain: DeploymentSummaryType
     comment: An augmentation point for DeploymentSummaryType.
 
   - id: isFullTimeIndicator
     label: Is Full Time Indicator
+    domain: ExperienceType
     range: niem-xs:boolean
     comment: True if the engagement is full time; false otherwise..
 
   - id: experienceAugmentationPoint
     label: Experience Augmentation Point
+    domain: ExperienceType
     comment: An augmentation point for ExperienceType.
 
   - id: access
     label: Access
-    range: em:AccessType
+    domain: FirstResponderType
+    range: AccessType
     comment: A credential class that describes the access rights of a resource.
 
   - id: accessRightDescriptionText
     label: Access Right Description Text
+    domain: AccessType
     range: nc:TextType
     comment: A textual description of the access rights of a resource.
 
   - id: physicalAccessLevelCode
     label: Physical Access Level Code
-    range: em:PhysicalAccessLevelCodeType
+    domain: AccessType
+    range: PhysicalAccessLevelCodeType
     comment: A data element for the code that identifies the level of access to an asset.
 
   - id: electronicAccessRightCode
     label: Electronic Access Right Code
-    range: em:ElectronicAccessRightCodeType
+    domain: AccessType
+    range: ElectronicAccessRightCodeType
     comment: A data element for the code that identifies the level of access to an electronic asset.
 
   - id: effectiveDate
@@ -995,60 +1108,72 @@ property:
 
   - id: accessAugmentationPoint
     label: Access Augmentation Point
+    domain: AccessType
     comment: An augmentation point for AccessType.
 
   - id: resourceID
     label: Resource
+    domain: FirstResponderType
     range: nc:IdentificationType
     comment: A credential class identifier that represents the resource.
 
   - id: badge
     label: Badge
-    range: em:BadgeType
+    domain: FirstResponderType
+    range: BadgeType
     comment: A data element for an ID card that identifies a person. A badge can be a low cost card, or a PIV card that follows specification NIST SP-800-73-2. Badge may work together with a pin number, visual identification and biometrics of the badge holder to make a positive identification of a person.
 
   - id: badgeJobTitleText
     label: Badge Job Title Text
+    domain: BadgeType
     range: nc:TextType
     comment: A data element for the the job title of the Person that appears on the Badge.
 
   - id: badgeCredential
     label: Badge Credential
-    range: em:BadgeCredentialType
+    domain: BadgeType
+    range: BadgeCredentialType
     comment: A data element for the credential data on a badge.
 
   - id: badgeCredentialCodeText
     label: Badge Credential Code Text
+    domain: BadgeCredentialType
     range: nc:TextType
     comment: A data element for the code associated with the Person's qualifications recorded on the Badge.
 
   - id: badgeTemporaryCredentialIndicator
     label: Badge Temporary Credential Indicator
+    domain: BadgeCredentialType
     range: niem-xs:boolean
     comment: True if a credential appearing on a badge is temporary; false otherwise.
 
   - id: badgeCredentialColorRGBHexValue
     label: Badge Credential Color Hex Value
+    domain: BadgeCredentialType
     range: niem-xs:string
     comment: A data element specifies a HEX RGB value for a credential appeared on a badge.
 
   - id: badgeCredentialDateRange
     label: Badge Credential Date Range
+    domain: BadgeCredentialType
     range: nc:DateRangeType
     comment: A data element specifies the effective date range for a credential appeared on a badge.
 
   - id: badgeCredentialAugmentationPoint
     label: Badge Credential Augmentation Point
+    domain: BadgeCredentialType
     comment: An augmentation point for BadgeCredentialType.
 
   - id: badgeTemplateFile
     label: Badge Template File
+    domain: BadgeType
     range: nc:BinaryType
     comment: A data element for the template of a badge for printing purpose.
 
   - id: barcode
     label: Barcode
-    range: em:BarcodeType
+    domain: BadgeType
+    range: BarcodeType
     comment: A data element for a bar code.
 
   - id: itemBarCodeIdentification
@@ -1057,30 +1182,36 @@ property:
 
   - id: barcodeCode
     label: Barcode Code
-    range: em:BarcodeCodeType
+    domain: BarcodeType
+    range: BarcodeCodeType
     comment: A data element for a barcode code type information.
 
   - id: barcodeContentText
     label: Barcode Content Text
+    domain: BarcodeType
     range: nc:TextType
     comment: A data element for a bar code content information.
 
   - id: barcodeImage
     label: Barcode Image
+    domain: BarcodeType
     range: nc:BinaryType
     comment: A data element for a bar code image.
 
   - id: barcodeAugmentationPoint
     label: Barcode Augmentation Point
+    domain: BarcodeType
     comment: An augmentation point for BarcodeType.
 
   - id: badgeNotesText
     label: Badge Notes Text
+    domain: BadgeType
     range: nc:TextType
     comment: A data element for Notes about the Badge, if needed.
 
   - id: badgeAugmentationPoint
     label: Badge Augmentation Point
+    domain: BadgeType
     comment: An augmentation point for BadgeType.
 
   - id: insurance
@@ -1089,50 +1220,60 @@ property:
 
   - id: liability
     label: Liability
-    range: em:LiabilityType
+    domain: FirstResponderType
+    range: LiabilityType
     comment: A credential class that represents the liabilities that are associated with a resource.
 
   - id: liabilityName
     label: Liability Name
+    domain: LiabilityType
     range: nc:TextType
     comment: A textual name of the liability.
 
   - id: liabilityDescriptionText
     label: Liability Description Text
+    domain: LiabilityType
     range: nc:TextType
     comment: A textual description of the liability.
 
   - id: liabilityDocumentName
     label: Liability Document Name
+    domain: LiabilityType
     range: nc:TextType
     comment: A textual name of the document associated with the liability.
 
   - id: liabilityAugmentationPoint
     label: Liability Augmentation Point
+    domain: LiabilityType
     comment: An augmentation point for LiabilityType.
 
   - id: licenseCertificationRegistration
     label: License Certification Registration
-    range: em:LicenseCertificationRegistrationType
+    domain: FirstResponderType
+    range: LicenseCertificationRegistrationType
     comment: A data element for the credential class that represents Licensing.
 
   - id: lCRTitleText
     label: Title Text
+    domain: LicenseCertificationRegistrationType
     range: nc:TextType
     comment: A data element that specifies the title of a license, certificate or registration (LCR).
 
   - id: lCRCategoryCode
     label: Category Code
-    range: em:LCRCategoryCodeType
+    domain: LicenseCertificationRegistrationType
+    range: LCRCategoryCodeType
     comment: A data element that specifies if it is a license, certificate or registration.
 
   - id: lCRID
     label: undefined
+    domain: LicenseCertificationRegistrationType
     range: nc:IdentificationType
     comment: An identifier for a license, registration or certificate.
 
   - id: isStateLCRIndicator
     label: Is State Indicator
+    domain: LicenseCertificationRegistrationType
     range: niem-xs:boolean
     comment: True if the license, registration or certificate is at state level; false otherwise..
 
@@ -1142,12 +1283,14 @@ property:
 
   - id: registrationJurisdictionName
     label: Registration Jurisdiction Name
+    domain: PersonCredentialInformationType
     range: niem-xs:string
     comment: A textual representation of LCR's issuing organization name.
 
   - id: credentialStatusCode
     label: Credential Status Code
-    range: em:CredentialStatusCodeType
+    domain: LicenseCertificationRegistrationType
+    range: CredentialStatusCodeType
     comment: A codified presentation of the status of a Person's credential.
 
   - id: statusDescriptionText
@@ -1156,98 +1299,118 @@ property:
 
   - id: licenseCertificationRegistrationAugmentationPoint
     label: License Certification Registration Augmentation Point
+    domain: LicenseCertificationRegistrationType
     comment: An augmentation point for LicenseCertificationRegistrationType.
 
   - id: physicalFitness
     label: Physical Fitness
-    range: em:PhysicalFitnessType
+    domain: FirstResponderType
+    range: PhysicalFitnessType
     comment: A credential class that represents the person's physical fitness.
 
   - id: physicalFitnessLevelCode
     label: Physical Fitness Level Code
-    range: em:PhysicalFitnessLevelCodeType
+    domain: PhysicalFitnessType
+    range: PhysicalFitnessLevelCodeType
     comment: A code that represents the level of fitness a person is in.
 
   - id: exerciseCode
     label: Exercise Code
-    range: em:ExerciseCategoryCodeType
+    domain: PhysicalFitnessType
+    range: ExerciseCategoryCodeType
     comment: A textual representation of the type of exercise.
 
   - id: exerciseDescriptionText
     label: Exercise Description Text
+    domain: PhysicalFitnessType
     range: nc:TextType
     comment: A textual description of the type of exercise.
 
   - id: exerciseWeeklyFrequencyValue
     label: Exercise Weekly Frequency Value
+    domain: PhysicalFitnessType
     range: niem-xs:integer
     comment: A number count representation of how many times a week an exercise if performed by a person (e.g. 1, 2, 3).
 
   - id: exerciseMinutesEachTime
     label: Exercise Minutes Each Time
+    domain: PhysicalFitnessType
     range: niem-xs:time
     comment: A number of minutes representation for each time an exercise is performed by a person (e.g. 3, 5, 15).
 
   - id: lastExerciseTime
     label: Last Exercise Time
+    domain: PhysicalFitnessType
     range: niem-xs:time
     comment: A data element for the last recorded time for an exercise (e.g. 00-00-12 for 100 yard dash).
 
   - id: physicalFitnessAugmentationPoint
     label: Physical Fitness Augmentation Point
+    domain: PhysicalFitnessType
     comment: An augmentation point for PhysicalFitnessType.
 
   - id: skill
     label: Skill
-    range: em:SkillType
+    domain: FirstResponderType
+    range: SkillType
     comment: A credential class that represents a person's skill.
 
   - id: skillName
     label: Skill Name
+    domain: SkillType
     range: niem-xs:string
     comment: A data element that is the name of a skill.
 
   - id: skillDescriptionText
     label: Skill Description Text
+    domain: SkillType
     range: nc:TextType
     comment: A textual description of a skill.
 
   - id: skillAcquiredCategoryCode
     label: Skill Acquired Category Code
-    range: em:SkillAcquiredCategoryCodeType
+    domain: SkillType
+    range: SkillAcquiredCategoryCodeType
     comment: A code describes how a skill is acquired.
 
   - id: skillUseHistoryText
     label: Skill Use History Text
+    domain: SkillType
     range: niem-xs:string
     comment: A textual description about the skill usage of a person.
 
   - id: skillAugmentationPoint
     label: Skill Augmentation Point
+    domain: SkillType
     comment: An augmentation point for SkillType.
 
   - id: training
     label: Training
-    range: em:TrainingType
+    domain: FirstResponderType
+    range: TrainingType
     comment: A data element for the credential class that represents a person's training credentials.
 
   - id: courseText
     label: Course Text
+    domain: TrainingType
     range: nc:TextType
     comment: A data element for the name of the training course.
 
   - id: courseLevelText
     label: Course Level Text
+    domain: TrainingType
     range: nc:TextType
     comment: A data element that describes the level of the provided course and training (i.e. Beginner, Intermediate, Advanced).
 
   - id: isIssuedCertificationIndicator
     label: Is Issued Certification Indicator
+    domain: TrainingType
     range: niem-xs:boolean
     comment: True if a certification is issued; false otherwise..
 
   - id: trainingDuration
     label: Training Duration
+    domain: TrainingType
     range: niem-xs:duration
     comment: A data element for the duration of the training in number of days.
 
@@ -1257,39 +1420,47 @@ property:
 
   - id: trainingAugmentationPoint
     label: Training Augmentation Point
+    domain: TrainingType
     comment: An augmentation point for TrainingType.
 
   - id: peerReview
     label: Peer Review
-    range: em:PeerReviewType
+    domain: FirstResponderType
+    range: PeerReviewType
     comment: A data element for the peer review of a person.
 
   - id: peerReviewDescriptionText
     label: Peer Review Description Text
+    domain: PeerReviewType
     range: nc:TextType
     comment: A data element that is the description text of a peer review.
 
   - id: peerReviewAuthorText
     label: Peer Review Author Text
+    domain: PeerReviewType
     range: nc:TextType
     comment: A data element for the person who wrote the peer review.
 
   - id: peerReviewSubjectText
     label: Peer Review Subject Text
+    domain: PeerReviewType
     range: nc:TextType
     comment: A data element for the subject of a peer review.
 
   - id: peerReviewDate
     label: Peer Review Date
+    domain: PeerReviewType
     range: nc:DateType
     comment: A date the peer review was written.
 
   - id: peerReviewAugmentationPoint
     label: Peer Review Augmentation Point
+    domain: PeerReviewType
     comment: An augmentation point for PeerReviewType.
 
   - id: personPublication
     label: Person Publication
+    domain: FirstResponderType
     range: nc:PublicationType
     comment: A data element for the publication done by a person.
 
@@ -1299,11 +1470,13 @@ property:
 
   - id: waiver
     label: Waiver
-    range: em:WaiverType
+    domain: FirstResponderType
+    range: WaiverType
     comment: A data element representing a granted credential waiver of a person.
 
   - id: waiverAuthorizer
     label: Waiver Authorizer
+    domain: WaiverType
     range: nc:EntityType
     comment: A data element for the entity who authorized the waiver.
 
@@ -1317,79 +1490,95 @@ property:
 
   - id: waiverDate
     label: Waiver Date
+    domain: WaiverType
     range: nc:DateType
     comment: A data element for the date a waiver is issued.
 
   - id: waiverAugmentationPoint
     label: Waiver Augmentation Point
+    domain: WaiverType
     comment: An augmentation point for WaiverType.
 
   - id: deploymentInformation
     label: Deployment Information
-    range: em:DeploymentInformationType
+    domain: FirstResponderType
+    range: DeploymentInformationType
     comment: A data element for the information of a deployment of a resource.
 
   - id: deploymentStatusCode
     label: Deployment Status Code
-    range: em:DeploymentStatusCodeType
+    domain: DeploymentInformationType
+    range: DeploymentStatusCodeType
     comment: A data element that represents the deployment status.
 
   - id: availabilityStatusCode
     label: Availability Status Code
-    range: em:AvailabilityStatusCodeType
+    domain: DeploymentInformationType
+    range: AvailabilityStatusCodeType
     comment: A data element that describes if a resource is available.
 
   - id: prohibitiveDeploymentCondition
     label: Prohibitive Deployment Condition
-    range: em:ProhibitiveDeploymentConditionType
+    domain: DeploymentInformationType
+    range: ProhibitiveDeploymentConditionType
     comment: A data element for the condition a person is prohibited from being deployed to.
 
   - id: prohibitiveDeploymentConditionDescriptionText
     label: Prohibitive Deployment Condition Description Text
+    domain: ProhibitiveDeploymentConditionType
     range: nc:TextType
     comment: A textual description of the prohibitive deployment condition.
 
   - id: prohibitiveDeploymentConditionAugmentationPoint
     label: Prohibitive Deployment Condition Augmentation Point
+    domain: ProhibitiveDeploymentConditionType
     comment: An augmentation point for ProhibitiveDeploymentConditionType.
 
   - id: deploymentDescriptionText
     label: Deployment Description Text
+    domain: DeploymentInformationType
     range: nc:TextType
     comment: A data element for the textual description of the deployment.
 
   - id: deploymentOrderDescriptionText
     label: Deployment Order Description Text
+    domain: DeploymentInformationType
     range: nc:TextType
     comment: A data element for the textual description of the deployment order.
 
   - id: deploymentOrderFormBinary
     label: Deployment Order Form Binary
+    domain: DeploymentInformationType
     range: nc:BinaryType
     comment: A data element contains deployment order form binary data.
 
   - id: deploymentAcceptedByText
     label: Deployment Accepted By Text
+    domain: DeploymentInformationType
     range: nc:TextType
     comment: A data element for a textual description of an entity that accepted the deployment.
 
   - id: deploymentAcceptedByDate
     label: Deployment Accepted By Date
+    domain: DeploymentInformationType
     range: nc:DateType
     comment: A data element for the date at which a deployment is accepted.
 
   - id: deploymentRequestedByText
     label: Deployment Requested By Text
+    domain: DeploymentInformationType
     range: nc:TextType
     comment: A data element for a textual description of an entity that requested the deployment.
 
   - id: deploymentRequestedByDate
     label: Deployment Requested By Date
+    domain: DeploymentInformationType
     range: nc:DateType
     comment: A data element for the date at which a deployment is requested.
 
   - id: reportToLocation
     label: Report To Location
+    domain: DeploymentInformationType
     range: nc:LocationType
     comment: A data element for a Location where the resource is to report.
 
@@ -1399,171 +1588,206 @@ property:
 
   - id: deploymentInformationAugmentationPoint
     label: Deployment Information Augmentation Point
+    domain: DeploymentInformationType
     comment: An augmentation point for DeploymentInformationType.
 
   - id: personCredentialInformation
     label: Person Credential Information
-    range: em:PersonCredentialInformationType
+    domain: FirstResponderType
+    range: PersonCredentialInformationType
     comment: A data element for information about a person's credential.
 
   - id: credentialIssuedByText
     label: Credential Issued By Text
+    domain: PersonCredentialInformationType
     range: nc:TextType
     comment: A data element for the information about the Organization that issued the credential.
 
   - id: credentialDescriptionText
     label: Credential Description Text
+    domain: PersonCredentialInformationType
     range: nc:TextType
     comment: A data element for the description of the credential.
 
   - id: credentialExpirationCategoryCode
     label: Credential Expiration Category Code
-    range: em:CredentialExpirationCategoryCodeType
+    domain: PersonCredentialInformationType
+    range: CredentialExpirationCategoryCodeType
     comment: A data element for the type of expiration of a person's credential. Example structures- Expired, Revoked.
 
   - id: credentialID
     label: Credential
+    domain: PersonCredentialInformationType
     range: nc:IdentificationType
     comment: An identifier associated with the credential.
 
   - id: credentialIssueDate
     label: Credential Issue Date
+    domain: PersonCredentialInformationType
     range: nc:DateType
     comment: A data element for the date that the credential is issued.
 
   - id: credentialClassMetric
     label: Credential Class Metric
-    range: em:CredentialClassMetricType
+    domain: CredentialClassType
+    range: CredentialClassMetricType
     comment: A data element for a first responder credential class metric. Example- Number of years a Person has held a Commercial Pilot License.
 
   - id: credentialClassMetricID
     label: Credential Class Metric
+    domain: CredentialClassMetricType
     range: nc:IdentificationType
     comment: An identifier for the code assigned to a credential class Metric.
 
   - id: credentialClassMetricName
     label: Credential Class Metric Name
+    domain: CredentialClassMetricType
     range: nc:TextType
     comment: A data element for the name of a credential class metric.
 
   - id: credentialClassMetricPrecisionNumeric
     label: Credential Class Metric Precision Numeric
+    domain: CredentialClassMetricType
     range: niem-xs:integer
     comment: A data element for the precision of a credential class metric.
 
   - id: credentialClassMetricUnitOfMeasure
     label: Credential Class Metric Unit Of Measure
+    domain: CredentialClassMetricType
     range: nc:TextType
     comment: A data element for the unit of measure of a credential class metric. Example- Years, Level, etc.
 
   - id: credentialClassMetricValue
     label: Credential Class Metric Value
-    range: em:CredentialClassMetricValueType
+    domain: CredentialClassMetricType
+    range: CredentialClassMetricValueType
     comment: A data element for the value of a credential class metric.
 
   - id: comparisonEndValue
     label: Comparison End Value
+    domain: CredentialClassMetricValueType
     range: nc:TextType
     comment: A data element for the right side value of a comparison operation.
 
   - id: comparisonStartValue
     label: Comparison Start Value
+    domain: CredentialClassMetricValueType
     range: nc:TextType
     comment: A data element for the left side value of a comparison operation.
 
   - id: logicalOperatorText
     label: Logical Operator Text
+    domain: CredentialClassMetricValueType
     range: nc:TextType
     comment: A data element for a logical operator.
 
   - id: credentialClassMetricValueAugmentationPoint
     label: Credential Class Metric Value Augmentation Point
+    domain: CredentialClassMetricValueType
     comment: An augmentation point for CredentialClassMetricValueType.
 
   - id: credentialClassMetricAugmentationPoint
     label: Credential Class Metric Augmentation Point
+    domain: CredentialClassMetricType
     comment: An augmentation point for CredentialClassMetricType.
 
   - id: credentialClass
     label: Credential Class
-    range: em:CredentialClassType
+    domain: LogicalOrType
+    range: CredentialClassType
     comment: A data element for a credential class. Example structures- Experience, Training etc.
 
   - id: credentialClassBadgeQualificationCodeText
     label: Credential Class Badge Qualification Code Text
+    domain: CredentialClassType
     range: nc:TextType
     comment: A data element for the code associated with the Person's qualifications recorded on the Badge.
 
   - id: credentialClassCategoryText
     label: Credential Class Category Text
+    domain: CredentialClassType
     range: nc:TextType
     comment: A kind of credential class.
 
   - id: credentialClassDescriptionText
     label: Credential Class Description Text
+    domain: CredentialClassType
     range: nc:TextType
     comment: A data element for the textual description of a credential class.
 
   - id: credentialClassID
     label: Credential Class
+    domain: CredentialClassType
     range: nc:IdentificationType
     comment: An identifier of a credential class.
 
   - id: credentialClassName
     label: Credential Class Name
+    domain: CredentialClassType
     range: nc:TextType
     comment: A data element for the name of a credential class. Example structures- Experience, Training, etc.
 
   - id: credentialClassCategoryCode
     label: Credential Class Category Code
-    range: em:CredentialClassCategoryCodeType
+    domain: CredentialClassType
+    range: CredentialClassCategoryCodeType
     comment: A data element for the type or kind of credential class.
 
   - id: credentialQualificationCriteria
     label: Credential Qualification Criteria
-    range: em:CredentialQualificationCriteriaType
+    domain: CredentialClassType
+    range: CredentialQualificationCriteriaType
     comment: A data element for the criteria for a credential qualification.
 
   - id: logicalAnd
     label: Logical And
-    range: em:LogicalAndType
+    domain: LogicalOrType
+    range: LogicalAndType
     comment: A data element for logical And operation.
 
   - id: logicalOr
     label: Logical Or
-    range: em:LogicalOrType
+    domain: CredentialQualificationCriteriaType
+    range: LogicalOrType
     comment: A data element for the logical Or operation.
 
   - id: logicalOrAugmentationPoint
     label: Logical Or Augmentation Point
+    domain: LogicalOrType
     comment: An augmentation point for LogicalOrType.
 
   - id: logicalAndAugmentationPoint
     label: Logical And Augmentation Point
+    domain: LogicalAndType
     comment: An augmentation point for LogicalAndType.
 
   - id: qualificationCriteriaCategoryCode
     label: Qualification Criteria Category Code
-    range: em:CriteriaCategoryCodeType
+    domain: CredentialQualificationCriteriaType
+    range: CriteriaCategoryCodeType
     comment: A data element for a code that represents the type of qualification criteria. Example structures- Recommended, Required.
 
   - id: qualificationCriteriaCommentText
     label: Qualification Criteria Comment Text
+    domain: CredentialQualificationCriteriaType
     range: nc:TextType
     comment: A data element for a textual comment associated with the criteria for a qualification.
 
   - id: qualificationDescriptionText
     label: Qualification Description Text
+    domain: CredentialQualificationCriteriaType
     range: nc:TextType
     comment: A data element for a textual description of a credential qualification.
 
   - id: qualificationPrerequisiteText
     label: Qualification Prerequisite Text
+    domain: CredentialQualificationCriteriaType
     range: nc:TextType
     comment: A data element for a textual description of the prerequisites for qualification for a credential.
 
   - id: credentialQualificationCriteriaAugmentationPoint
     label: Credential Qualification Criteria Augmentation Point
+    domain: CredentialQualificationCriteriaType
     comment: An augmentation point for CredentialQualificationCriteriaType.
 
   - id: sourceText
@@ -1572,14 +1796,17 @@ property:
 
   - id: credentialClassAugmentationPoint
     label: Credential Class Augmentation Point
+    domain: CredentialClassType
     comment: An augmentation point for CredentialClassType.
 
   - id: personCredentialInformationAugmentationPoint
     label: Person Credential Information Augmentation Point
+    domain: PersonCredentialInformationType
     comment: An augmentation point for PersonCredentialInformationType.
 
   - id: volunteerIndicator
     label: Volunteer Indicator
+    domain: FirstResponderType
     range: niem-xs:boolean
     comment: True if a resource is a volunteer; false otherwise.
 
@@ -1589,12 +1816,14 @@ property:
 
   - id: emergencySupportFunctionCode
     label: Emergency Support Function Code
-    range: em:EmergencySupportFunctionCodeType
+    domain: FirstResponderType
+    range: EmergencySupportFunctionCodeType
     comment: A data element for the code that identifies an Emergency Support Function (ESF), defined by FEMA.
 
   - id: firstResponderAvailabilityStatusCode
     label: First Responder Availability Status Code
-    range: em:FirstResponderAvailabilityStatusCodeType
+    domain: FirstResponderType
+    range: FirstResponderAvailabilityStatusCodeType
     comment: A data element that describes if a first responder is available.
 
   - id: physicalFeatureDescriptionDetail
@@ -1607,4 +1836,5 @@ property:
 
   - id: firstResponderAugmentationPoint
     label: First Responder Augmentation Point
+    domain: FirstResponderType
     comment: An augmentation point for FirstResponderType.
