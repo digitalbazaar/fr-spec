@@ -17,9 +17,27 @@ var respecConfig = {
       title: "Verifiable Credentials Data Model v2.0",
       href: "https://www.w3.org/TR/vc-data-model-2.0/",
       authors: [
-        "Manu Sporny", "Grant Noble", "Dave Longley",
-        "Daniel C. Burnett", "Brent Zundel", "Kyle Den Hartog",
-        "Orie Steel", "Michael B. Jones", "Gabe Cohen"
+        "Manu Sporny",
+
+
+"Grant Noble",
+
+
+"Dave Longley",
+        "Daniel C. Burnett",
+
+
+"Brent Zundel",
+
+
+"Kyle Den Hartog",
+        "Orie Steel",
+
+
+"Michael B. Jones",
+
+
+"Gabe Cohen"
       ],
       publisher: "W3C"
     }
@@ -36,8 +54,14 @@ var respecConfig = {
     w3cid:      41758
   }],
   alternateFormats: [
-    {uri: "vocabulary.ttl", label: "Turtle"},
-    {uri: "vocabulary.jsonld", label: "JSON-LD"}
+    {uri: "vocabulary.ttl",
+
+
+label: "Turtle"},
+    {uri: "vocabulary.jsonld",
+
+
+label: "JSON-LD"}
   ],
   postProcess : [remove_status_remark],
   inlineCSS: true,
@@ -93,7 +117,10 @@ table.rdfs-definition td {
   </head>
   <body typeof="owl:Ontology">
     <section id="abstract">
-      <p>This document describes the <span property="dc:title" id="title"></span>, i.e.,
+      <p>This document describes the <span property="dc:title" id="title"></span>,
+
+
+i.e.,
          the <span property="dc:description" id="description"></span>.
       </p>
       <p>Alternate versions of the vocabulary definition exist in
@@ -122,6 +149,59 @@ official endorsement should be inferred.
 
       <section>
         <h2>Examples</h2>
+        <section>
+          <h3>First Responder</h3>
+          <pre class="example" title="An example of a First Responder instance">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/first-responder/v1"
+  ],
+  "id": "https://www.nremt.org/registrations/238947023",
+  "type": ["VerifiableCredential", "FirstResponderCredential"],
+  "issuer": {
+    "id": "https://www.nremt.org/",
+    "name": "National Registry of Emergency Medical Technicians",
+    "image": "https://www.nremt.org/getmedia/1f345ca2-c51e-46bf-9c16-2085bbe6214f/Emergency-Medical-Responder-Sticker.png"
+  },
+  "validFrom": "2023-01-01T00:00:00Z",
+  "validUntil": "2028-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "type": "FirstResponderType",
+    "badge": {
+      "type": "BadgeType",
+      "badgeJobTitleText": "Emergency Medical Technician",
+      "personHumanResource": {
+        "personIDCard": {
+          "nameOnCardText": "Samatha Doe",
+          "idCategoryCodeAbstract": "3857923-24",
+          "signatureAuthorityName": "Grady Memorial Hospital",
+          "agencySymbol": "data:image/png;base64,iVBORwY4OHwAAA...0ABTXLU5kJg0KGgoAA=",
+          "cardPicture": "data:image/png;base64,iVBORw0KGgoAA...TXL0Y4OHwAAAABJRU5ErkJggg==",
+          "eAssuranceLevelCode": 3,
+          "fips201ConformanceCode": "HIGH"
+        }
+      }
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2023-07-12T01:19:52Z",
+    "verificationMethod": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg#z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "cryptosuite": "eddsa-2022",
+    "proofPurpose": "authentication",
+    "proofValue": "z2xzCdyYpxcrnYfaWUuQb7K9htwTxmFFndAwofNV81F8iZvAgqnmz9bswK6wBoX7e529Ymd3xT1YrcbZzvbzDRHtZ"
+  }
+}
+          </pre>
+        </section>
+        <section>
+          <h3>First Responder Skill</h3>
+        </section>
+        <section>
+          <h3>First Responder Training</h3>
+        </section>
       </section>
     </section>
 
@@ -152,7 +232,10 @@ official endorsement should be inferred.
         <h1>Deprecated term definitions</h1>
 
         <p class="annoy">
-  All terms in this section are <em><strong>deprecated</strong></em>, and are only kept in this vocabulary for backward compatibility.
+  All terms in this section are <em><strong>deprecated</strong></em>,
+
+
+and are only kept in this vocabulary for backward compatibility.
   <br>New applications should not use them.
         </p>
 
