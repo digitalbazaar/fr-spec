@@ -163,8 +163,7 @@ official endorsement should be inferred.
     "https://w3id.org/first-responder/v1"
   ],
   "id": "https://www.nremt.org/registrations/238947023",
-  "type": ["VerifiableCredential",
-"FirstResponderCredential"],
+  "type": ["VerifiableCredential", "FirstResponderCredential"],
   "issuer": {
     "id": "https://www.nremt.org/",
     "name": "National Registry of Emergency Medical Technicians",
@@ -213,8 +212,7 @@ official endorsement should be inferred.
     "https://w3id.org/first-responder/v1"
   ],
   "id": "https://www.nremt.org/registrations/238947023",
-  "type": ["VerifiableCredential",
-"FirstResponderCredential"],
+  "type": ["VerifiableCredential", "FirstResponderCredential"],
   "issuer": {
     "id": "https://www.naemt.org/",
     "name": "National Association of Emergency Medical Technicians",
@@ -245,6 +243,94 @@ official endorsement should be inferred.
 }
           </pre>
 
+        </section>
+        <section>
+          <h3>First Responder Skill (CTDL - Open Skills Network)</h3>
+          <pre class="example nohighlight" title="An example of a First Responder skill expressed as a Verifiable Credential">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/first-responder/v1"
+  ],
+  "id": "https://www.nremt.org/registrations/238947023",
+  "type": ["VerifiableCredential", "FirstResponderCredential"],
+  "issuer": {
+    "id": "https://www.naemt.org/",
+    "name": "National Association of Emergency Medical Technicians",
+    "image": "https://naemt.org/img/logo-w.png"
+  },
+  "validFrom": "2023-01-01T00:00:00Z",
+  "validUntil": "2028-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "type": "FirstResponderType",
+    "skill": {
+      "@context": "https://rsd.openskillsnetwork.org/context-v1.json",
+      "id": "https://osmt.wgu.edu/api/skills/2efb4eb6-380a-4fdc-8eb3-8f05a0b160c6",
+      "type": "RichSkillDescriptor",
+      "skillName": "Administer Neonatal Artificial Breaths",
+      "skillStatement": "Administer artificial breaths per the American Academy of Pediatrics guidelines to an unresponsive newborn infant.",
+      "keywords": ["Neonatal Resuscitation Program", "Cyanosis"],
+      "alignments": [{
+        "id": "Neonatal Resuscitation Program (emsidata.com)",
+        "skillName": "Neonatal Resuscitation Program"
+      }],
+      "standards": [{
+        "skillName": "CoARC_Standards"
+      }],
+      "certifications": [{
+        "name": "NBRC_CRT_TMC"
+      }, {
+        "name": "NBRC_RRT_TMC"
+      }, {
+        "name": "NBRC_RRT_CSE"
+      }],
+      "occupations": [{
+        "code": "29-1126",
+        "targetNodeName": "Respiratory Therapists",
+        "frameworkName": "bls",
+        "parents": [{
+          "code": "29-0000",
+          "targetNodeName": "Healthcare Practitioners and Technical Occupations",
+          "level": "Major"
+        }, {
+          "code": "29-1000",
+          "targetNodeName": "Healthcare Diagnosing or Treating Practitioners",
+          "level": "Minor"
+        }, {
+          "code": "29-1120",
+          "targetNodeName": "Therapists",
+          "level": "Broad"
+        }, {
+          "code": "29-1126",
+          "targetNodeName": "Respiratory Therapists",
+          "level": "Detailed"
+        }]
+      }],
+      "creator": "https://credentialengineregistry.org/resources/ce-036d082d-d80e-41a7-99a0-2d63a4ad3a4a",
+      "status": "published",
+      "category": "Neonatal Resuscitation Program",
+      "author": "Western Governors University",
+      "uuid": "2efb4eb6-380a-4fdc-8eb3-8f05a0b160c6",
+      "creationDate": "2022-04-07T13:11:29.242633Z",
+      "updateDate": "2022-04-07T13:15:27.343033Z",
+      "publishDate": "2022-04-07T13:15:27.343043Z",
+      "collections": [{
+        "uuid": "2b5ca8da-44fd-461b-8ea7-0f9c314e4084",
+        "name": "Respiratory Therapists_JAN.2023"
+      }]
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2023-07-12T01:19:52Z",
+    "verificationMethod": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg#z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "cryptosuite": "eddsa-2022",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z2xzCdyYpxcrnYfaWUuQb7K9htwTxmFFndAwofNV81F8iZvAgqnmz9bswK6wBoX7e529Ymd3xT1YrcbZzvbzDRHtZ"
+  }
+}
+          </pre>
         </section>
         <section>
           <h3>First Responder Training  (NIEM)</h3>
