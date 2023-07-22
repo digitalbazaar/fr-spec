@@ -155,7 +155,7 @@ official endorsement should be inferred.
       <section>
         <h2>Examples</h2>
         <section>
-          <h3>First Responder Badge</h3>
+          <h3>First Responder Badge (NIEM)</h3>
           <pre class="example nohighlight" title="An example of a First Responder badge expressed as a Verifiable Credential">
 {
   "@context": [
@@ -198,14 +198,14 @@ official endorsement should be inferred.
     "created": "2023-07-12T01:19:52Z",
     "verificationMethod": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg#z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
     "cryptosuite": "eddsa-2022",
-    "proofPurpose": "authentication",
+    "proofPurpose": "assertionMethod",
     "proofValue": "z2xzCdyYpxcrnYfaWUuQb7K9htwTxmFFndAwofNV81F8iZvAgqnmz9bswK6wBoX7e529Ymd3xT1YrcbZzvbzDRHtZ"
   }
 }
           </pre>
         </section>
         <section>
-          <h3>First Responder Skill</h3>
+          <h3>First Responder Skill (NIEM)</h3>
           <pre class="example nohighlight" title="An example of a First Responder skill expressed as a Verifiable Credential">
 {
   "@context": [
@@ -226,9 +226,10 @@ official endorsement should be inferred.
     "id": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
     "type": "FirstResponderType",
     "skill": {
+      "id": "https://osmt.wgu.edu/api/skills/2efb4eb6-380a-4fdc-8eb3-8f05a0b160c6"
       "type": "SkillType",
-      "skillName": "Newborn resuscitation",
-      "skillDescriptionText": "Ability to provide critical pediatric care to newborns and children under the age of 12 months that have stopped breathing.",
+      "skillName": "Administer Neonatal Artificial Breaths",
+      "skillDescriptionText": "guidelines to an unresponsive newborn infant.",
       "skillAcquiredCategoryCode": "Trained",
       "skillUseHistoryText": "Weekly Emergency Room rotation from June 2020 to April 2023 in pediatric ward of Grady Memorial Hospital.",
     }
@@ -238,7 +239,7 @@ official endorsement should be inferred.
     "created": "2023-07-12T01:19:52Z",
     "verificationMethod": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg#z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
     "cryptosuite": "eddsa-2022",
-    "proofPurpose": "authentication",
+    "proofPurpose": "assertionMethod",
     "proofValue": "z2xzCdyYpxcrnYfaWUuQb7K9htwTxmFFndAwofNV81F8iZvAgqnmz9bswK6wBoX7e529Ymd3xT1YrcbZzvbzDRHtZ"
   }
 }
@@ -246,7 +247,7 @@ official endorsement should be inferred.
 
         </section>
         <section>
-          <h3>First Responder Training</h3>
+          <h3>First Responder Training  (NIEM)</h3>
           <pre class="example nohighlight" title="An example of a First Responder training expressed as a Verifiable Credential">
 {
   "@context": [
@@ -279,7 +280,7 @@ official endorsement should be inferred.
     "created": "2023-07-12T01:19:52Z",
     "verificationMethod": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg#z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
     "cryptosuite": "eddsa-2022",
-    "proofPurpose": "authentication",
+    "proofPurpose": "assertionMethod",
     "proofValue": "z2xzCdyYpxcrnYfaWUuQb7K9htwTxmFFndAwofNV81F8iZvAgqnmz9bswK6wBoX7e529Ymd3xT1YrcbZzvbzDRHtZ"
   }
 }
