@@ -355,7 +355,7 @@ official endorsement should be inferred.
     "skill": {
       {
         "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-        "id": "https://example.com/achievements/robotics/robot-programming",
+        "id": "https://wgu.edu/achievements/administer-neonatal-artificial-breaths",
         "type": "Achievement",
         "achievementType": "Competency",
         "name": "Administer Neonatal Artificial Breaths",
@@ -424,6 +424,70 @@ official endorsement should be inferred.
       "courseLevelText": "Intermediate",
       "isIssuedCertificationIndicator": true,
       "trainingDuration": 20
+    }
+  },
+  "proof": {
+    "type": "DataIntegrityProof",
+    "created": "2023-07-12T01:19:52Z",
+    "verificationMethod": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg#z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "cryptosuite": "eddsa-2022",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z2xzCdyYpxcrnYfaWUuQb7K9htwTxmFFndAwofNV81F8iZvAgqnmz9bswK6wBoX7e529Ymd3xT1YrcbZzvbzDRHtZ"
+  }
+}
+          </pre>
+
+        </section>
+        <section>
+          <h3>First Responder Training (Open Badge v3 - CTDL)</h3>
+          <pre class="example nohighlight" title="An example of a First Responder training certificate of completion expressed as a Verifiable Credential in Open Badge v3 - CTDL format">
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://w3id.org/first-responder/v1"
+  ],
+  "id": "https://www.nremt.org/registrations/238947023",
+  "type": ["VerifiableCredential", "FirstResponderCredential"],
+  "issuer": {
+    "id": "https://www.naemt.org/",
+    "name": "National Association of Emergency Medical Technicians",
+    "image": "https://naemt.org/img/logo-w.png"
+  },
+  "validFrom": "2023-01-01T00:00:00Z",
+  "validUntil": "2028-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
+    "type": "FirstResponderType",
+    "training": {
+      "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
+      "id": "https://wgu.edu/classes/2023/emt-184-spring/",
+      "type": "Achievement",
+      "achievementType": "CertificateOfCompletion",
+      "name": "EMT-184: Emergency Medical Technician (Neonatal Elective)",
+      "alignment": [{
+        "type": "Alignment",
+        "targetUrl": "https://emsidata.com/",
+        "targetDescription": "Guidelines for administering emergency care to an unresponsive newborn infant.",
+        "targetName": "Neonatal Resuscitation Program",
+        "targetFramework": "Neonatal Resuscitation Program"
+      }],
+      "creator": {
+        "id": "https://emsidata.com/issuers/234987",
+        "type":"Profile",
+        "name": "Western Governors University",
+        "url": "https://osmt.wgu.edu/api/skills/2efb4eb6-380a-4fdc-8eb3-8f05a0b160c6/image",
+        "description": "Western Governors University's Open Skills Program.",
+        "email": "osmt@wgu.edu"
+      },
+      "criteria": {
+        "narrative": "Learners must be able to administer follow national guidelines when administering emergency care to an unresponsive newborn infant."
+      },
+      "description": "This certificate of completion is awarded to Samantha Doe for the completion of the Neonatal Resuscitation Program provided by Western Governors University in May 2023.",
+      "image": {
+        "id": "https://emsidata.com/skills/images/anab.png",
+        "type": "Image",
+        "caption": "An silhouette of an infant overlayed with the Rod of Aesculapius, which is a symbol of healing in the medical profession."
+      }
     }
   },
   "proof": {
