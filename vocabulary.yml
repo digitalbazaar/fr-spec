@@ -163,21 +163,9 @@ class:
     label: Person Card Type
     comment: A data type for a credential class that represents the identification of a human resource.
 
-  - id: NISTSP800733PIVCardDataType
-    label: 800733 Card Data Type
-    comment: A data type for fields contained on a PIV card.
-
   - id: EAssuranceLevelCodeType
     label: Assurance Level Code Type
     comment: A data type that represents the assurance level of an identification, defined by OMB M-04-04 E-Authentication Guidance.
-
-  - id: PIVAssuranceLevelCodeType
-    label: Assurance Level Code Type
-    comment: A data type for a code that represents the assurance level of an identification, defined by FIPS 201.
-
-  - id: FIPS201ConformanceCodeType
-    label: 201 Conformance Code Type
-    comment: A data type for a code that represents the FIPS 201 conformance level of an identification card.
 
   - id: UpdateRecordType
     label: Update Record Type
@@ -435,100 +423,9 @@ property:
     range: nc:ImageType
     comment: A binary (i.e. digitized) presentation of an identification card picture.
 
-  - id: nISTSP800733PIVCardData
+  - id: nistSP800733PIVCardData
     label: 800733 Card Data
-    domain: PersonIDCardType
-    range: NISTSP800733PIVCardDataType
-    comment: A data element for the fields contained on a PIV card.
-
-  - id: cardCapabilityContainer
-    label: Card Capability Container
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for the capability to contain data of the PIV Card.
-
-  - id: cardholderFingerprints
-    label: Cardholder Fingerprints
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for fingerprint biometrics obtained from the cardholders that are contained in the PIV Card.
-
-  - id: cardholderID
-    label: Cardholder
-    domain: NISTSP800733PIVCardDataType
-    range: niem-xs:string
-    comment: A identifier assigned to the card-holder.
-
-  - id: discoveryObject
-    label: Discovery Object
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for inter-industry ISO/IEC 7816 template that nests inter-industry data objects.
-
-  - id: keyHistoryObject
-    label: Key History Object
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for the retired Key Management private keys.
-
-  - id: printedText
-    label: Printed Text
-    domain: NISTSP800733PIVCardDataType
-    range: nc:TextType
-    comment: A data element for information that is printed on an identification card.
-
-  - id: securityObject
-    label: Security Object
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for a data object that contains the security information.
-
-  - id: cardholderFacialImage
-    label: Cardholder Facial Image
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A binary representation of a facial image.
-
-  - id: cardholderIrisImages
-    label: Cardholder Iris Images
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A binary representation of iris images.
-
-  - id: x509CertificateForCardAuthentication
-    label: 509 Certificate For Card Authentication
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for X.509 certificate for card authentication key.
-
-  - id: x509CertificateForDigitalSignature
-    label: 509 Certificate For Digital Signature
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for X.509 certificate for digital signature.
-
-  - id: x509CertificateForKeyManagement
-    label: 509 Certificate For Key Management
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for X.509 certificate for key management.
-
-  - id: x509CertificateForPIVAuthentication
-    label: 509 Certificate For Authentication
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A data element for X.509 certificate for PIV authentication.
-
-  - id: retiredX509CertificateForKeyManagement
-    label: Retired 509 Certificate For Key Management
-    domain: NISTSP800733PIVCardDataType
-    range: nc:BinaryType
-    comment: A binary representation of a retired X509 Certificate for key management.
-
-  - id: nISTSP800733PIVCardDataAugmentationPoint
-    label: 800733 Card Data Augmentation Point
-    domain: NISTSP800733PIVCardDataType
-    comment: An augmentation point for NISTSP800733PIVCardDataType.
+    comment: 800733 Card Data
 
   - id: eAssuranceLevelCode
     label: Assurance Level Code
@@ -536,17 +433,13 @@ property:
     range: EAssuranceLevelCodeType
     comment: A data element for an assurance level code, defined by OMB M-04-04 E-Authentication Guidance.
 
-  - id: pIVAssuranceLevelCode
+  - id: pivAssuranceLevelCode
     label: Assurance Level Code
-    domain: PersonIDCardType
-    range: PIVAssuranceLevelCodeType
-    comment: A data element for an assurance level code, defined by FIPS 201.
+    comment: Assurance Level Code
 
-  - id: fIPS201ConformanceCode
+  - id: fips201ConformanceCode
     label: 201 Conformance Code
-    domain: PersonIDCardType
-    range: FIPS201ConformanceCodeType
-    comment: A data element for FIPS 201 conformance level of an identification card.
+    comment: 201 Conformance Code
 
   - id: personIDCardAugmentationPoint
     label: Person Card Augmentation Point

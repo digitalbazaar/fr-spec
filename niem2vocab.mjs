@@ -32,6 +32,7 @@ function buildRdfClass(subModel) {
   // add class information
   const rdfClass = {};
   rdfClass.id = subModel.getAttribute('name').value();
+  //console.log("PROCESS CLASS", rdfClass.id);
   rdfClass.label = rdfClass.id.match(/[A-Z][a-z]+|[0-9]+/g).join(' ');
   const comment = subModel.childNodes()[1].childNodes()[1].childNodes()[0].toString() + '.';
   rdfClass.comment = comment;
@@ -47,7 +48,7 @@ function buildRdfClass(subModel) {
         if(element.name() === 'element') {
           const property = {};
           property.curie = element.getAttribute('ref').value();
-          const propertyName = property.curie.split(':')[1];
+          const propertyName = property.curie.split(':')[1].replace(/^NIST/, 'nist').replace(/^FIPS/, 'fips').replace(/^PIV/, 'piv');
           property.label = propertyName.match(/[A-Z][a-z]+|[0-9]+/g)?.join(' ');
           property.id = propertyName[0].toLowerCase() + propertyName.slice(1);
           //console.log('ELEMENT', property);
@@ -69,15 +70,16 @@ function buildRdfClass(subModel) {
             if(type) {
               const namespace = type.split(':')[0];
               const bareType = type.split(':')[1];
+              const className = type.split(':')[1];
               if(namespace === 'em') {
-                property.range = bareType;
+                property.range = className;
               } else {
                 property.range = type;
               }
               const subTypeModel = subModel.find(
                 `//xs:complexType[@name="${bareType}"]`, xsNamespace)[0];
               if(subTypeModel) {
-                if(!(bareType in allClasses)) {
+                if(!(className in allClasses)) {
                   buildRdfClass(subTypeModel);
                 }
               }
