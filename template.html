@@ -156,7 +156,7 @@ official endorsement should be inferred.
         <h2>Examples</h2>
         <section>
           <h3>First Responder Badge (NIEM)</h3>
-          <pre class="example nohighlight" title="An example of a First Responder badge expressed as a Verifiable Credential">
+          <pre class="example nohighlight" title="An example of a First Responder badge expressed as a Verifiable Credential using the NIEM vocabulary">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -205,7 +205,7 @@ official endorsement should be inferred.
         </section>
         <section>
           <h3>First Responder Skill (NIEM)</h3>
-          <pre class="example nohighlight" title="An example of a First Responder skill expressed as a Verifiable Credential">
+          <pre class="example nohighlight" title="An example of a First Responder skill as a Verifiable Credential in NIEM format">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -245,8 +245,8 @@ official endorsement should be inferred.
 
         </section>
         <section>
-          <h3>First Responder Skill (CTDL - Open Skills Network)</h3>
-          <pre class="example nohighlight" title="An example of a First Responder skill expressed as a Verifiable Credential">
+          <h3>First Responder Skill (NIEM + Rich Skills Description)</h3>
+          <pre class="example nohighlight" title="An example of a First Responder skill as a Verifiable Credential in Open Skills Network, Rich Skill Description format">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -333,19 +333,19 @@ official endorsement should be inferred.
           </pre>
         </section>
         <section>
-          <h3>First Responder Skill (Open Badge v3)</h3>
-          <pre class="example nohighlight" title="An example of a First Responder skill expressed as a Verifiable Credential">
+          <h3>First Responder Skill (NIEM + Open Badge v3)</h3>
+          <pre class="example nohighlight" title="An example of a First Responder skill as a Verifiable Credential in Open Badge v3 format">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
     "https://w3id.org/first-responder/v1"
   ],
-  "id": "https://www.nremt.org/registrations/238947023",
+  "id": "https://wgu.edu/skills/89237492347",
   "type": ["VerifiableCredential", "FirstResponderCredential"],
   "issuer": {
-    "id": "https://www.naemt.org/",
-    "name": "National Association of Emergency Medical Technicians",
-    "image": "https://naemt.org/img/logo-w.png"
+    "id": "https://wgu.edu/",
+    "name": "Western Governors University",
+    "image": "https://wgu.edu/logo.png"
   },
   "validFrom": "2023-01-01T00:00:00Z",
   "validUntil": "2028-01-01T00:00:00Z",
@@ -353,36 +353,34 @@ official endorsement should be inferred.
     "id": "did:key:z6MkjCysjs36Cx1mt5cBH5MbbNWdhA7PA3JY4VFs1PyLneWg",
     "type": "FirstResponderType",
     "skill": {
-      {
-        "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
-        "id": "https://wgu.edu/achievements/administer-neonatal-artificial-breaths",
-        "type": "Achievement",
-        "achievementType": "Competency",
-        "name": "Administer Neonatal Artificial Breaths",
-        "alignment": [{
-          "type": "Alignment",
-          "targetUrl": "https://emsidata.com/",
-          "targetDescription": "Administer artificial breaths per the American Academy of Pediatrics guidelines to an unresponsive newborn infant.",
-          "targetName": "Neonatal Resuscitation Program",
-          "targetFramework": "Neonatal Resuscitation Program"
-        }],
-        "creator": {
-          "id": "https://emsidata.com/issuers/234987",
-          "type":"Profile",
-          "name": "Western Governors University",
-          "url": "https://osmt.wgu.edu/api/skills/2efb4eb6-380a-4fdc-8eb3-8f05a0b160c6/image",
-          "description": "Western Governors University's Open Skills Program.",
-          "email": "osmt@wgu.edu"
-        },
-        "criteria": {
-          "narrative": "Learners must be able to administer artificial breaths per the American Academy of Pediatrics guidelines to an unresponsive newborn infant."
-        },
-        "description": "This achievement represents an skill gained while training to be a specialized Emergency Medical Technician.",
-        "image": {
-          "id": "https://emsidata.com/skills/images/anab.png",
-          "type": "Image",
-          "caption": "An silhouette of an infant overlayed with the Rod of Aesculapius, which is a symbol of healing in the medical profession."
-        }
+      "@context": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.2.json",
+      "id": "https://wgu.edu/achievements/administer-neonatal-artificial-breaths",
+      "type": "Achievement",
+      "achievementType": "Competency",
+      "name": "Administer Neonatal Artificial Breaths",
+      "alignment": [{
+        "type": "Alignment",
+        "targetUrl": "https://emsidata.com/",
+        "targetDescription": "Administer artificial breaths per the American Academy of Pediatrics guidelines to an unresponsive newborn infant.",
+        "targetName": "Neonatal Resuscitation Program",
+        "targetFramework": "Neonatal Resuscitation Program"
+      }],
+      "creator": {
+        "id": "https://emsidata.com/issuers/234987",
+        "type":"Profile",
+        "name": "Western Governors University",
+        "url": "https://osmt.wgu.edu/api/skills/2efb4eb6-380a-4fdc-8eb3-8f05a0b160c6/image",
+        "description": "Western Governors University's Open Skills Program.",
+        "email": "osmt@wgu.edu"
+      },
+      "criteria": {
+        "narrative": "Learners must be able to administer artificial breaths per the American Academy of Pediatrics guidelines to an unresponsive newborn infant."
+      },
+      "description": "This achievement represents an skill gained while training to be a specialized Emergency Medical Technician.",
+      "image": {
+        "id": "https://emsidata.com/skills/images/anab.png",
+        "type": "Image",
+        "caption": "An silhouette of an infant overlayed with the Rod of Aesculapius, which is a symbol of healing in the medical profession."
       }
     }
   },
@@ -398,8 +396,8 @@ official endorsement should be inferred.
           </pre>
         </section>
         <section>
-          <h3>First Responder Training  (NIEM)</h3>
-          <pre class="example nohighlight" title="An example of a First Responder training expressed as a Verifiable Credential">
+          <h3>First Responder Training (NIEM)</h3>
+          <pre class="example nohighlight" title="An example of a First Responder training certificate event expressed as a Verifiable Credential in NIEM format">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -408,9 +406,9 @@ official endorsement should be inferred.
   "id": "https://www.nremt.org/registrations/238947023",
   "type": ["VerifiableCredential", "FirstResponderCredential"],
   "issuer": {
-    "id": "https://www.naemt.org/",
-    "name": "National Association of Emergency Medical Technicians",
-    "image": "https://naemt.org/img/logo-w.png"
+    "id": "https://www.nvcc.edu/",
+    "name": "Northern Virginia Community College",
+    "image": "https://www.nvcc.edu/logo.png"
   },
   "validFrom": "2023-01-01T00:00:00Z",
   "validUntil": "2028-01-01T00:00:00Z",
@@ -439,7 +437,7 @@ official endorsement should be inferred.
 
         </section>
         <section>
-          <h3>First Responder Training (Open Badge v3 - CTDL)</h3>
+          <h3>First Responder Training (NIEM + Open Badge v3)</h3>
           <pre class="example nohighlight" title="An example of a First Responder training certificate of completion expressed as a Verifiable Credential in Open Badge v3 - CTDL format">
 {
   "@context": [
@@ -449,9 +447,9 @@ official endorsement should be inferred.
   "id": "https://www.nremt.org/registrations/238947023",
   "type": ["VerifiableCredential", "FirstResponderCredential"],
   "issuer": {
-    "id": "https://www.naemt.org/",
-    "name": "National Association of Emergency Medical Technicians",
-    "image": "https://naemt.org/img/logo-w.png"
+    "id": "https://wgu.edu/",
+    "name": "Western Governors University",
+    "image": "https://wgu.edu//wgulogo.png"
   },
   "validFrom": "2023-01-01T00:00:00Z",
   "validUntil": "2028-01-01T00:00:00Z",
