@@ -1,0 +1,6 @@
+node_modules/
+package-lock.json
+# auto-generated vocabulary documents
+vocabulary.html
+vocabulary.jsonld
+vocabulary.ttl
