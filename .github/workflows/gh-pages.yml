@@ -34,6 +34,7 @@ jobs:
           npm install yml2vocab
           npm update yml2vocab
           ./node_modules/.bin/yml2vocab -v vocabulary.yml -t template.html
+          mv vocabulary.html index.html
           rm niem2vocab.mjs package.json
           rm -rf node_modules
       - name: Setup Github Pages
