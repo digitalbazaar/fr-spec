@@ -1,0 +1,64 @@
+{
+  "@context": {
+    "@protected": true,
+    "SafetyAssessmentProgramCredential": "https://w3id.org/first-responder/sap#SafetyAssessmentProgramCredential",
+    "SafetyAssessmentProgramCard": {
+      "@id": "https://w3id.org/first-responder/sap#SafetyAssessmentProgramCard",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "cardHolder": "https://w3id.org/first-responder/sap#cardHolder",
+        "identifier": "https://schema.org/identifier",
+        "jurisdiction": "https://schema.org/jurisdiction",
+        "deploymentStatus": "https://w3id.org/first-responder/sap#deploymentStatus",
+        "portrait": {
+          "@id": "https://w3id.org/first-responder/sap#portrait",
+          "@type": "@id"
+        },
+        "class": "https://w3id.org/first-responder/sap#class"
+      }
+    },
+    "SafetyAssessmentProgramProfessional": {
+      "@id": "https://w3id.org/first-responder/sap#SafetyAssessmentProgramProfessional",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "name": "https://schema.org/name",
+        "address": "https://schema.org/address",
+        "originalTrainingDate": {
+           "@id": "https://w3id.org/first-responder/sap#originalTrainingDate",
+           "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "updatedTrainingDate": {
+          "@id": "https://w3id.org/first-responder/sap#updatedTrainingDate",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "profession": "https://w3id.org/first-responder/sap#profession",
+        "agency": "https://w3id.org/first-responder/sap#agency",
+        
+        "role": "https://w3id.org/first-responder/sap#role"
+      }
+    },
+    "PostalAddress": {
+      "@id": "https://schema.org/PostalAddress",
+      "@context": {
+        "addressRegion": "https://schema.org/addressRegion",
+        "addressLocality": "https://schema.org/addressLocality"
+      }
+    },
+    "Organization": {
+      "@id": "https://schema.org/Organization",
+      "@context": {
+        "name": "https://schema.org/name"
+      }      
+    },
+    "Occupation": {
+      "@id": "https://schema.org/Occupation",
+      "@context": {
+        "name": "https://schema.org/name"
+      }      
+    }
+  }
+}
