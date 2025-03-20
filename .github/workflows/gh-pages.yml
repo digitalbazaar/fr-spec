@@ -31,19 +31,21 @@ jobs:
           node-version: 20
       - name: Generate First Responder specification
         run: |
+          mkdir build
           npm install yml2vocab
           npm update yml2vocab
           ./node_modules/.bin/yml2vocab -v vocabulary.yml -t template.html
-          mv vocabulary.html index.html
-          rm niem2vocab.mjs package.json
-          rm -rf node_modules
+          cp -a vocabulary.html build/index.html
+          cp -a vocabulary.jsonld build/
+          cp -a vocabulary.ttl build/
+          cp -ra ./contexts ./build
       - name: Setup Github Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Upload build dir
+          path: 'build'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
