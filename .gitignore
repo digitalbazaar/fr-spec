@@ -1,5 +1,15 @@
-node_modules/
+*.sw[nop]
+*~
+.cache
+.project
+.settings
+.vscode
+TAGS
+build
+node_modules
 package-lock.json
+package-lock.json
+reports
 # auto-generated vocabulary documents
 vocabulary.html
 vocabulary.jsonld
